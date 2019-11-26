@@ -13,7 +13,7 @@ function forecast() {
   var APIKey = "2170de39c5050f413763bdb23256d561";
   var city = $("#userInput").val();
   $.ajax({
-    url: "httpss://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey,
+    url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey,
     method: "GET"
   }).then(function(response1) {
     console.log(response1);
@@ -23,7 +23,7 @@ function forecast() {
     var date1 = moment().add(1, "d").format("M/D/YY");
     $("#date1").text(date1);
     var iconCode = response1.list[0].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon1").attr("src", iconURL);
     $("#temp1").text("Temp: " + parseInt(response1.list[0].main.temp) + "° F");
     $("#humidity1").text("Humidity: " + response1.list[0].main.humidity + "%");
@@ -33,7 +33,7 @@ function forecast() {
     var date2 = moment().add(2, "d").format("M/D/YY");
     $("#date2").text(date2);
     var iconCode = response1.list[8].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon2").attr("src", iconURL);
     $("#temp2").text("Temp: " + parseInt(response1.list[8].main.temp) + "° F");
     $("#humidity2").text("Humidity: " + response1.list[8].main.humidity + "%");
@@ -43,7 +43,7 @@ function forecast() {
     var date3 = moment().add(3, "d").format("M/D/YY");
     $("#date3").text(date3);
     var iconCode = response1.list[16].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon3").attr("src", iconURL);
     $("#temp3").text("Temp: " + parseInt(response1.list[16].main.temp) + "° F");
     $("#humidity3").text("Humidity: " + response1.list[16].main.humidity + "%");
@@ -53,7 +53,7 @@ function forecast() {
     var date4 = moment().add(4, "d").format("M/D/YY");
     $("#date4").text(date4);
     var iconCode = response1.list[24].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon4").attr("src", iconURL);
     $("#temp4").text("Temp: " + parseInt(response1.list[24].main.temp) + "° F");
     $("#humidity4").text("Humidity: " + response1.list[24].main.humidity + "%");
@@ -63,7 +63,7 @@ function forecast() {
     var date5 = moment().add(5, "d").format("M/D/YY");
     $("#date5").text(date5);
     var iconCode = response1.list[32].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon5").attr("src", iconURL);
     $("#temp5").text("Temp: " + parseInt(response1.list[32].main.temp) + "° F");
     $("#humidity5").text("Humidity: " + response1.list[32].main.humidity + "%");
@@ -77,7 +77,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
   var lat = position.coords.latitude;
   var lon = position.coords.longitude;
   var APIKey = "2170de39c5050f413763bdb23256d561";
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey;
+  var queryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey;
 
   // current conditions
   $.ajax({
@@ -89,7 +89,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
     $("#cardHeader").html(response.name);
     // grab icon code and generate url
     var iconCode = response.weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     console.log(iconURL);
     $("#description").text("Currently: " + response.weather[0].description);
     $("#icon").attr("src", iconURL);
@@ -99,7 +99,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
     $("#windSpeed").html("Wind Speed: " + response.wind.speed + " mph");
 
     $.ajax({
-      url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon,
+      url: "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon,
       method: "GET"
     }).then(function(response) {
       console.log(response);
@@ -110,7 +110,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
   // 5-day forecast
   $.ajax({
-    url: "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey,
+    url: "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey,
     method: "GET"
   }).then(function(response1) {
     console.log(response1);
@@ -120,7 +120,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
     var date1 = moment().add(1, "d").format("M/D/YY");
     $("#date1").text(date1);
     var iconCode = response1.list[0].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon1").attr("src", iconURL);
     $("#temp1").text("Temp: " + parseInt(response1.list[0].main.temp) + "° F");
     $("#humidity1").text("Humidity: " + response1.list[0].main.humidity + "%");
@@ -130,7 +130,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
     var date2 = moment().add(2, "d").format("M/D/YY");
     $("#date2").text(date2);
     var iconCode = response1.list[8].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon2").attr("src", iconURL);
     $("#temp2").text("Temp: " + parseInt(response1.list[8].main.temp) + "° F");
     $("#humidity2").text("Humidity: " + response1.list[8].main.humidity + "%");
@@ -140,7 +140,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
     var date3 = moment().add(3, "d").format("M/D/YY");
     $("#date3").text(date3);
     var iconCode = response1.list[16].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon3").attr("src", iconURL);
     $("#temp3").text("Temp: " + parseInt(response1.list[16].main.temp) + "° F");
     $("#humidity3").text("Humidity: " + response1.list[16].main.humidity + "%");
@@ -150,7 +150,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
     var date4 = moment().add(4, "d").format("M/D/YY");
     $("#date4").text(date4);
     var iconCode = response1.list[24].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon4").attr("src", iconURL);
     $("#temp4").text("Temp: " + parseInt(response1.list[24].main.temp) + "° F");
     $("#humidity4").text("Humidity: " + response1.list[24].main.humidity + "%");
@@ -160,7 +160,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
     var date5 = moment().add(5, "d").format("M/D/YY");
     $("#date5").text(date5);
     var iconCode = response1.list[32].weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#icon5").attr("src", iconURL);
     $("#temp5").text("Temp: " + parseInt(response1.list[32].main.temp) + "° F");
     $("#humidity5").text("Humidity: " + response1.list[32].main.humidity + "%");
@@ -173,7 +173,7 @@ function getWeatherInfo() {
 
   var city = $("#userInput").val();
   var APIKey = "2170de39c5050f413763bdb23256d561";
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
+  var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
 
   $.ajax({
     url: queryURL,
@@ -184,7 +184,7 @@ function getWeatherInfo() {
     $("#cardHeader").html(response.name);
     // grab icon code and generate url
     var iconCode = response.weather[0].icon;
-    var iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
     $("#description").text("Currently: " + response.weather[0].description);
     $("#icon").attr("src", iconURL);
     var temp = parseInt(response.main.temp);
@@ -193,7 +193,7 @@ function getWeatherInfo() {
     $("#windSpeed").html("Wind Speed: " + response.wind.speed + " mph");
 
     $.ajax({
-      url: "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon,
+      url: "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon,
       method: "GET"
     }).then(function(response) {
       console.log(response);
