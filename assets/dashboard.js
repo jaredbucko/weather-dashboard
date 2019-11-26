@@ -318,6 +318,19 @@ function renderButtons() {
   }
 };
 
+// save searches to local storage
+function storeSearches() {
+  localStorage.setItem("cities", JSON.stringify(cities));
+};
+
+// retrieve previous searches from local storage
+if (localStorage.getItem("cities") === null) {
+  cities = [];
+} else {
+  cities = JSON.parse(localStorage.getItem("cities"));
+  renderButtons();
+};
+
 // new search
 $("#searchBtn").on("click", function(event) {
   event.preventDefault();
@@ -325,5 +338,6 @@ $("#searchBtn").on("click", function(event) {
   var city = $("#userInput").val();
   cities.push(city);
   $("#previouslySearched").empty();
+  storeSearches();
   renderButtons();
 });
