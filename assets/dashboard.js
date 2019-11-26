@@ -1,12 +1,13 @@
+// global variables
+var clear = "";
+var cities = [];
+
 // set today's date
 function setDate() {
   var today = moment().format('dddd, MMMM D, YYYY');
   $("#date").text(today);
 };
 setDate();
-
-// cities array
-var cities = [];
 
 // define function for retrieving and loading 5-day forecast by city name
 function forecast() {
@@ -340,4 +341,12 @@ $("#searchBtn").on("click", function(event) {
   $("#previouslySearched").empty();
   storeSearches();
   renderButtons();
+  $("#userInput").val("");
+});
+
+// set clear button
+$("#clearBtn").click(function() {
+  localStorage.removeItem("cities");
+  $("#previouslySearched").empty();
+  cities = [];
 });
